@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>CBT JATIM</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/animate/animate.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/select2/select2.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/perfect-scrollbar/perfect-scrollbar.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/util.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	<div class="topnav">
+		<form class="example">
+			<input type="text" placeholder="Search.." name="search" id="apa">
+			<input type="button" id="buttonsearch" onclick="location.href='/cbt/'+document.getElementById('apa').value" value="Search" />
+		  </form>
+	  </div>
+	
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100 ver1">
+					<div class="table100-firstcol">
+						<table>
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1">Nama</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="row100 body">
+									<td class="cell100 column1 js-pscroll">
+										{% block content %}
+											{% for tampilan in tampilans %} 
+										  	<div>
+											  	{{tampilan.nama}}
+										  	</div>
+											{% endfor %}
+									  	{% endblock %}
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					
+					<div class="wrap-table100-nextcols js-pscroll">
+						<div class="table100-nextcols">
+							<table>
+								<thead>
+									<tr class="row100 head">
+										<th class="cell100 column2">NRP</th>
+										<th class="cell100 column3">Fisika</th>
+										<th class="cell100 column4">Kimia</th>
+										<th class="cell100 column5">Matematika</th>
+										<th class="cell100 column6">Biologi</th>
+										<th class="cell100 column7">Agama</th>
+										<th class="cell100 column7">Bahasa Indonesia</th>
+										<th class="cell100 column8">Bahasa Inggris</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="row100 body">
+										<td class="cell100 column2">
+											{% block content2 %}
+												{% for tampilan in tampilans %} 
+										  		<div>
+											  		{{tampilan.nrp}}
+										  		</div>
+												{% endfor %}
+									  		{% endblock %}
+										</td>
+										<td class="cell100 column3">
+											{% block content3 %}
+												{% for tampilan in tampilans %} 
+											  	<div>
+												  	{{tampilan.Fisika}}
+											  	</div>
+												{% endfor %}
+										  	{% endblock %}
+										</td>
+										<td class="cell100 column4">
+											{% block content4 %}
+												{% for tampilan in tampilans %} 
+											  	<div>
+												  	{{tampilan.Kimia}}
+											  	</div>
+												{% endfor %}
+										  	{% endblock %}
+										</td>
+										<td class="cell100 column5">
+											{% block content5 %}
+												{% for tampilan in tampilans %} 
+											  	<div>
+												  	{{tampilan.Matematika}}
+											  	</div>
+												{% endfor %}
+										  	{% endblock %}
+										</td>
+										<td class="cell100 column6">
+											{% block content6 %}
+												{% for tampilan in tampilans %} 
+												<div>
+													{{tampilan.Biologi}}
+												</div>
+												{% endfor %}
+											{% endblock %}
+										</td>
+										<td class="cell100 column7">
+											{% block content7 %}
+												{% for tampilan in tampilans %} 
+												<div>
+													{{tampilan.Agama}}
+												</div>
+												{% endfor %}
+											{% endblock %}
+										</td>
+										<td class="cell100 column7">
+											{% block content8 %}
+												{% for tampilan in tampilans %} 
+											  	<div>
+												  	{{tampilan.BahasaInd}}
+											  	</div>
+												{% endfor %}
+										  	{% endblock %}
+										</td>
+										<td class="cell100 column8">
+											{% block content9 %}
+												{% for tampilan in tampilans %} 
+												<div>
+													{{tampilan.BahasaIng}}
+												</div>
+												{% endfor %}
+											{% endblock %}
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+<!--===============================================================================================-->	
+	<script src="{{ url_for('static', filename='vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='vendor/bootstrap/js/popper.js')}}"></script>
+	<script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='vendor/select2/select2.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='vendor/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
+	<script>
+		$('.js-pscroll').each(function(){
+			var ps = new PerfectScrollbar(this);
+
+			$(window).on('resize', function(){
+				ps.update();
+			})
+
+			$(this).on('ps-x-reach-start', function(){
+				$(this).parent().find('.table100-firstcol').removeClass('shadow-table100-firstcol');
+			});
+
+			$(this).on('ps-scroll-x', function(){
+				$(this).parent().find('.table100-firstcol').addClass('shadow-table100-firstcol');
+			});
+
+		});
+
+		
+		
+		
+	</script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='js/main.js')}}"></script>
+
+</body>
+</html>
